@@ -1,5 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
+import styles from "./Modal.css";
 
 class ModalDescription extends React.Component {
   constructor(props) {
@@ -17,29 +18,29 @@ class ModalDescription extends React.Component {
 
   render() {
     return (
-      <div className="describe-body">
+      <div className={styles.describebody}>
         <u onClick={this.toggle.bind(this)}>Read more</u>
         <Modal
           isOpen={this.state.modalstate}
-          className="Modal"
-          overlayClassName="Overlay"
+          className={styles.Modal}
+          overlayClassName={styles.Overlay}
           ariaHideApp={false}
         >
-          <div id="closeModal" onClick={this.toggle.bind(this)}>
+          <div className={styles.closeModal} onClick={this.toggle.bind(this)}>
             x
           </div>
-          <div className="shoe-preview">
+          <div className={styles.shoepreview}>
             <img
               src="https://c.static-nike.com/a/images/t_default/ccunkpxkr340tgmw8zzb/zoom-pegasus-turbo-mens-running-shoe-qCL9h1.jpg"
               width="50px"
               height="45px"
             />
-            <div className="preview-description">
+            <div className={styles.previewdescription}>
               <div>Nike Air eos quaerat temporibus</div>
               <div>$304</div>
             </div>
           </div>
-          <div id="modal-body">
+          <div className={styles.modalbody}>
             <p>
               <b>{this.props.info.item_headline}</b>
             </p>

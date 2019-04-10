@@ -1,4 +1,5 @@
 var path = require("path");
+var combineLoaders = require("webpack-combine-loaders");
 
 module.exports = {
   mode: "development",
@@ -8,7 +9,7 @@ module.exports = {
     filename: "bundle.js"
   },
   resolve: {
-    extensions: [".js", ".jsx"]
+    extensions: [".js", ".jsx",".css"]
   },
   module: {
     rules: [
@@ -16,9 +17,26 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-react", "@babel/preset-env"]
+            presets: ["@babel/preset-react", "@babel/preset-env"],
+            plugins: ["@babel/plugin-proposal-class-properties"]
           }
         }
+      },
+      {
+        test: /\.css$/,
+        loader: combineLoaders([
+          {
+            loader: "style-loader"
+          },
+          {
+            loader: "css-loader",
+            query: {
+              modules: true,
+              sourceMap: true,
+              localIdentName: "[name]__[local]--[hash:base64:5]"
+            }
+          }
+        ])
       }
     ]
   }

@@ -1,5 +1,5 @@
 import React from "react";
-import { thisTypeAnnotation } from "@babel/types";
+import styles from "./Button.css";
 
 class SizeButton extends React.Component {
   constructor(props) {
@@ -18,9 +18,9 @@ class SizeButton extends React.Component {
   }
   render() {
     return (
-      <div className="button-div">
+      <div className={styles.buttondiv}>
         <button
-          className="size-button"
+          className={styles.sizebutton}
           onClick={this.clicked.bind(this)}
           onBlur={this.clickedAway.bind(this)}
           style={{
