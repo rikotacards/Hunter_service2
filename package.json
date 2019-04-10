@@ -8,7 +8,8 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "webpack -d --watch",
+    "run": "nodemon server/index.js",
     "seed": "mysql -u root < schema.sql && node seedDb.js",
     "test": "jest --watchAll"
   },

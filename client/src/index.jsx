@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Description from "./components/Description.jsx";
-import Suggestions from "./components/suggestions.jsx";
 import axios from "axios";
 
 class App extends React.Component {
@@ -9,18 +8,30 @@ class App extends React.Component {
     super(props);
     this.state = {
       suggest: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      descript: []
+      descript: [],
+      sizes: [
+        5,
+        6,
+        6.5,
+        7,
+        7.5,
+        8,
+        8.5,
+        9,
+        9.5,
+        10,
+        10.5,
+        11,
+        11.5,
+        12,
+        12.5,
+        13,
+        14,
+        15
+      ]
     };
   }
   componentDidMount() {
-    axios
-      .get(`/api/suggestions`)
-      .then(response => {
-        this.setState({ suggest: response.data });
-      })
-      .catch(error => {
-        console.log(error);
-      });
     axios
       .get(`/api/description`)
       .then(response => {
@@ -33,8 +44,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Description describes={this.state.descript} />
-        <Suggestions suggests={this.state.suggest} />
+        <Description describes={this.state.descript} size={this.state.sizes} />
       </div>
     );
   }
