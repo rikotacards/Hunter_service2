@@ -31,8 +31,10 @@ class App extends React.Component {
     };
   }
   componentDidMount() {
+    var path = window.location.pathname;
+    var prodid = path.slice(7);
     axios
-      .get(`/api/description`)
+      .get(`/shoes/${prodid}description`)
       .then(response => {
         this.setState({ descript: response.data[0] });
       })
@@ -49,4 +51,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(<App />, document.getElementById("describe"));
