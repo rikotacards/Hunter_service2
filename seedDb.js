@@ -3,7 +3,7 @@ const mysql = require("mysql");
 
 const connection = mysql.createConnection({
   user: "root",
-  database: "nike"
+  database: "nike2"
 });
 
 for (var i = 0; i < 101; i++) {
