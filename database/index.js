@@ -4,16 +4,6 @@ const connection = mysql.createConnection({
   database: "nike2"
 });
 
-var getDescription = function(callback) {
-  connection.query("select * from description", function(err, result) {
-    if (err) {
-      console.log(err);
-    } else {
-      callback(null, result);
-    }
-  });
-};
-
 var getDescriptions = function(productid, callback) {
   connection.query(
     `select * from description where id = ${productid}`,
@@ -28,6 +18,5 @@ var getDescriptions = function(productid, callback) {
 };
 
 module.exports = {
-  getDescription,
   getDescriptions
 };

@@ -26,6 +26,9 @@ class SizeButton extends React.Component {
           style={{
             color: this.state.color,
             backgroundColor: this.state.bgcolor
+            //if not in stock set state. add a state value for opacity
+            // opacity: 0.4
+            //backgroundColor: #eee
           }}
         >
           {this.props.data}
