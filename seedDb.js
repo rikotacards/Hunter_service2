@@ -8,13 +8,14 @@ const connection = mysql.createConnection({
 
 for (var i = 0; i < 101; i++) {
   connection.query(
-    "insert into description(description, benefits, item_headline, shown, style) values (?,?,?,?,?);",
+    "insert into description(description, benefits, item_headline, shown, style,  product_details) values (?,?,?,?,?,?);",
     [
       faker.lorem.paragraph(),
       faker.lorem.paragraph(),
       faker.lorem.words(),
       faker.lorem.words(),
-      faker.lorem.words()
+      faker.lorem.words(),
+      faker.lorem.paragraph()
     ],
     function(err, result) {
       if (err) {

@@ -33,6 +33,9 @@ class App extends React.Component {
   componentDidMount() {
     var path = window.location.pathname;
     var prodid = path.slice(7);
+    if (prodid.length < 1) {
+      prodid = "1/";
+    }
     axios
       .get(`/shoes/${prodid}description`)
       .then(response => {

@@ -13,6 +13,8 @@ app.use(express.static(__dirname + "/../client/dist"));
 
 app.use("/shoes/:id", express.static(__dirname + "/../client/dist"));
 
+app.use("/shoes/", express.static(__dirname + "/../client/dist"));
+
 // app.get("/api/description", (req, res) => {
 //   db.getDescription(function(err, result) {
 //     if (err) {
