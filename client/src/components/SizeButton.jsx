@@ -17,24 +17,39 @@ class SizeButton extends React.Component {
     this.setState({ color: "black", bgcolor: "white" });
   }
   render() {
-    return (
-      <div className={styles.buttondiv}>
-        <button
-          className={styles.sizebutton}
-          onClick={this.clicked.bind(this)}
-          onBlur={this.clickedAway.bind(this)}
-          style={{
-            color: this.state.color,
-            backgroundColor: this.state.bgcolor
-            //if not in stock set state. add a state value for opacity
-            // opacity: 0.4
-            //backgroundColor: #eee
-          }}
-        >
-          {this.props.data}
-        </button>
-      </div>
-    );
+    if (this.props.grey === "false") {
+      return (
+        <div className={styles.buttondiv}>
+          <button
+            className={styles.sizebutton}
+            onClick={this.clicked.bind(this)}
+            onBlur={this.clickedAway.bind(this)}
+            style={{
+              color: this.state.color,
+              backgroundColor: this.state.bgcolor
+            }}
+          >
+            {this.props.data}
+          </button>
+        </div>
+      );
+    } else {
+      return (
+        <div className={styles.buttondiv}>
+          <button
+            className={styles.sizebutton2}
+            onBlur={this.clickedAway.bind(this)}
+            style={{
+              color: this.state.color,
+              backgroundColor: "#eee",
+              opacity: 0.4
+            }}
+          >
+            {this.props.data}
+          </button>
+        </div>
+      );
+    }
   }
 }
 

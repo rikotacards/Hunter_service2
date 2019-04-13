@@ -27,7 +27,8 @@ class App extends React.Component {
         13,
         14,
         15
-      ]
+      ],
+      newArr: []
     };
   }
   componentDidMount() {
@@ -44,11 +45,23 @@ class App extends React.Component {
       .catch(error => {
         console.log(error);
       });
+    axios
+      .get(`/shoes/${prodid}sizes`)
+      .then(response => {
+        this.setState({ newArr: response.data });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
   render() {
     return (
       <div>
-        <Description describes={this.state.descript} size={this.state.sizes} />
+        <Description
+          describes={this.state.descript}
+          size={this.state.sizes}
+          shoeSize={this.state.newArr}
+        />
       </div>
     );
   }

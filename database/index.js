@@ -17,6 +17,17 @@ var getDescriptions = function(productid, callback) {
   );
 };
 
+var getSizes = function(productid, callback) {
+  connection.query(`select * from shoe${productid}`, function(err, result) {
+    if (err) {
+      console.log(err);
+    } else {
+      callback(null, result);
+    }
+  });
+};
+
 module.exports = {
-  getDescriptions
+  getDescriptions,
+  getSizes
 };

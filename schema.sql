@@ -14,3 +14,4 @@ CREATE TABLE description (
   product_details varchar(1000) NOT NULL,
   PRIMARY KEY (ID)
 );
+ 

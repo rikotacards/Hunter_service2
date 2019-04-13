@@ -27,8 +27,18 @@ app.use("/shoes/", express.static(__dirname + "/../client/dist"));
 
 app.get("/shoes/:id/description", (req, res) => {
   var productid = req.params.id;
-  console.log(productid);
   db.getDescriptions(productid, function(err, result) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.status(200).json(result);
+    }
+  });
+});
+
+app.get("/shoes/:id/sizes", (req, res) => {
+  var productid = req.params.id;
+  db.getSizes(productid, function(err, result) {
     if (err) {
       console.log(err);
     } else {
