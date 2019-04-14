@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   flex-shrink: 0;
   height: 100%;
+  padding-bottom:40px;
 }
 
 .describe {
@@ -15,6 +16,7 @@
 
 .shoppingbuttons {
   display: flex;
+  padding-bottom:30px
 }
 
 .addcart {
@@ -47,4 +49,8 @@
 .addcart:hover {
   opacity: 0.5;
   filter: alpha(opacity=100);
+}
+
+h2{
+  font-size:20px;
 }
